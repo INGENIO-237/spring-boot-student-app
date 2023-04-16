@@ -1,12 +1,24 @@
 package com.ingenio.studentapp.student;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "student")
 public class Student {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
     private String firstname;
     private String lastname;
     private LocalDate dob;
+
+    @Column(name = "email", unique = true)
     private String email;
+
+    @Transient
     private int age;
 
     public Student() {
