@@ -12,7 +12,7 @@ public class DBStudentService implements StudentService {
     private StudentRepository _studentRepository;
 
     @Autowired
-    public DBStudentService(StudentRepository studentRepository){
+    public DBStudentService(StudentRepository studentRepository) {
         this._studentRepository = studentRepository;
     }
 

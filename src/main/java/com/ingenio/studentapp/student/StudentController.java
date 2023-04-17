@@ -12,32 +12,32 @@ public class StudentController {
     private StudentService _studentService;
 
     @Autowired
-    public StudentController(StudentService studentService){
+    public StudentController(StudentService studentService) {
         this._studentService = studentService;
     }
 
     @GetMapping
-    public List<Student> findAllStudents(){
+    public List<Student> findAllStudents() {
         return _studentService.findAllStudent();
     }
 
     @PostMapping
-    public Student saveStudent(@RequestBody Student s){
+    public Student saveStudent(@RequestBody Student s) {
         return _studentService.save(s);
     }
 
     @GetMapping("/{email}")
-    public Student findByEmail(@PathVariable String email){
+    public Student findByEmail(@PathVariable String email) {
         return _studentService.findByEmail(email);
     }
 
     @DeleteMapping("/{email}")
-    public void deleteStudent(@PathVariable String email){
+    public void deleteStudent(@PathVariable String email) {
         _studentService.delete(email);
     }
 
     @PutMapping
-    public Student updateStudent(@RequestBody Student s){
+    public Student updateStudent(@RequestBody Student s) {
         return _studentService.update(s);
     }
 

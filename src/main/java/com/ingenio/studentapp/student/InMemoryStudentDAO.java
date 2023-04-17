@@ -10,12 +10,12 @@ import java.util.stream.IntStream;
 public class InMemoryStudentDAO {
     private final List<Student> STUDENTS = new ArrayList<>();
 
-    public List<Student> findAllStudent(){
+    public List<Student> findAllStudent() {
         return STUDENTS;
     }
 
-    public Student save(Student s){
-        if(s != null) {
+    public Student save(Student s) {
+        if (s != null) {
             STUDENTS.add(s);
             return s;
         }
@@ -23,28 +23,28 @@ public class InMemoryStudentDAO {
         return null;
     }
 
-    public Student findByEmail(String email){
+    public Student findByEmail(String email) {
         return STUDENTS.stream()
                 .filter(student -> email.equals(student.getEmail()))
                 .findFirst()
                 .orElse(null);
     }
 
-    public Student update(Student s){
+    public Student update(Student s) {
         var index = IntStream.range(0, STUDENTS.size())
                 .filter(indx -> STUDENTS.get(indx).getEmail().equals(s.getEmail()))
                 .findFirst()
                 .orElse(-1);
-        if(index > -1){
+        if (index > -1) {
             STUDENTS.set(index, s);
             return s;
         }
         return null;
     }
 
-    public void delete(String email){
+    public void delete(String email) {
         var student = findByEmail(email);
-        if(student != null){
+        if (student != null) {
             STUDENTS.remove(student);
         }
     }

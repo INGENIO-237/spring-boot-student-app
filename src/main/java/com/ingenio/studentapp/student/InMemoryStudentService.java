@@ -11,7 +11,7 @@ public class InMemoryStudentService implements StudentService {
     private InMemoryStudentDAO _inMemoryStudentDAO;
 
     @Autowired
-    public InMemoryStudentService(InMemoryStudentDAO inMemoryStudentDAO){
+    public InMemoryStudentService(InMemoryStudentDAO inMemoryStudentDAO) {
         this._inMemoryStudentDAO = inMemoryStudentDAO;
     }
 
