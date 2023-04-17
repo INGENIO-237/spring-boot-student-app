@@ -3,6 +3,7 @@ package com.ingenio.studentapp.student;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
 @Table(name = "student")
@@ -65,7 +66,7 @@ public class Student {
     }
 
     public int getAge() {
-        return age;
+        return Period.between(getDob(), LocalDate.now()).getYears();
     }
 
     public void setAge(int age) {
